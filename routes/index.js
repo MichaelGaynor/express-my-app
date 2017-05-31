@@ -2,10 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-
-    const students = [
+const students = [
     'Chris',
     'Carla',
     'Drew',
@@ -23,7 +20,14 @@ router.get('/', function(req, res, next) {
     'Marissa',
     'Ian']
 
+/* GET home page. */
+router.get('/', function(req, res, next) {
     res.render('index', { list: students });
 });
+
+// GET reverse page
+router.get('/reverse', function(req, res, next) {
+    res.render('reverse', {list: students});
+})
 
 module.exports = router;
